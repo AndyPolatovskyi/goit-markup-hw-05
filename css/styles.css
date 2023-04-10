@@ -47,6 +47,9 @@ ul {
   --soc-icon-hover-team: #404bbf;
   --soc-icon-hover-footer: #31D0AA;
   --customer-icon: #8E8F99;
+  --background-color-modal-page: rgba(46, 47, 66, 0.4);
+  --background-color-modal: #FCFCFC;
+  --background-modal-close:#E7E9FC;
 }
 
 body {
@@ -614,6 +617,7 @@ body {
   padding: 40px 32px 164px 32px;
   height: 100%;
   transform: translateY(100%);
+  opacity: 0.85;
 }
 
 /* .portfolio-item {
@@ -704,6 +708,50 @@ img {
   background-color: var(--soc-icon-hover-footer);
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-modal-page);
+  transition: opacity 500ms linear, visibility 500ms linear;
+}
 
+.modal {
+  position: absolute;
+  width: 408px;
+  height: 576px;
+  top: 50%;
+  left: 50%;
+  background-color: var(--background-color-modal);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+  transition:  transform 250ms linear;
+}
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0) rotate(-360deg);
+}
 
+.modal-close-btn {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--logo-secondary);
+  background-color: var(--background-modal-close);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
