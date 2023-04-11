@@ -50,6 +50,7 @@ ul {
   --background-color-modal-page: rgba(46, 47, 66, 0.4);
   --background-color-modal: #FCFCFC;
   --background-modal-close:#E7E9FC;
+  --active-close-modal: #ffffff;
 }
 
 body {
@@ -73,7 +74,7 @@ body {
 
 .link {
   text-decoration: none;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .text {
@@ -618,6 +619,7 @@ body {
   height: 100%;
   transform: translateY(100%);
   opacity: 0.85;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* .portfolio-item {
@@ -641,7 +643,7 @@ body {
 .portfolio-link:hover .portfolio-cover-text,
 .portfolio-link:focus .portfolio-cover-text {
   transform: translate(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 
 .portfolio-link:hover,
@@ -741,13 +743,20 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: var(--logo-secondary);
+  fill: var(--logo-secondary);
   background-color: var(--background-modal-close);
   border: 1px solid rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 24px;
   right: 24px;
   cursor: pointer;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  fill: var(--active-close-modal);
+  background-color: var(--soc-icon-hover-team);
+  
 }
 
 .is-hidden {
